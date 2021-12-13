@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.ocbkc.swift</groupId>
   <artifactId>swift</artifactId>
@@ -10,7 +9,7 @@
   <packaging>war</packaging>
   <name>SWiFT Project</name>
   <inceptionYear>2010</inceptionYear>
-<!--  <author>Chide Groenouwe</author> -->
+  <!--  <author>Chide Groenouwe</author> -->
   <properties>
     <scala.version>2.9.3</scala.version>
     <!-- Common plugin settings -->
@@ -51,22 +50,22 @@
   </pluginRepositories>
 
   <dependencies>
-   <dependency>
+    <dependency>
       <groupId>net.liftweb</groupId>
       <artifactId>lift-json-ext_2.9.1</artifactId>
       <version>2.4</version>
-   </dependency>
-<dependency>
-  <groupId>net.liftmodules</groupId>
-  <artifactId>lift-jquery-module_2.5_2.9.2</artifactId>
-  <version>2.3</version>
-</dependency>
-  <dependency>
+    </dependency>
+    <dependency>
+      <groupId>net.liftmodules</groupId>
+      <artifactId>lift-jquery-module_2.5_2.9.2</artifactId>
+      <version>2.3</version>
+    </dependency>
+    <dependency>
       <groupId>org.jopendocument</groupId>
       <artifactId>jOpenDocument</artifactId>
       <version>1.3</version>
-  </dependency>
-      <dependency>
+    </dependency>
+    <dependency>
       <groupId>net.liftweb</groupId>
       <artifactId>lift-mapper_2.9.1</artifactId>
       <version>2.4</version>
@@ -111,12 +110,12 @@
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-compiler</artifactId>
       <version>${scala.version}</version>
-      <scope>compile</scope> <!-- changed to test something, switch back to "test" if needed -->
+      <scope>compile</scope>      <!-- changed to test something, switch back to "test" if needed -->
     </dependency>
     <dependency>
-        <groupId>commons-io</groupId>
-        <artifactId>commons-io</artifactId>
-            <version>2.4</version>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.4</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.jgit</groupId>
@@ -124,11 +123,11 @@
       <version>2.3.1.201302201838-r</version>
       <!-- <version>2.0.0.201206130900-r</version> -->
     </dependency>
-   <dependency>
-     <groupId>org.gitective</groupId>
-     <artifactId>gitective-core</artifactId>
-     <version>0.9.9</version>
-   </dependency>
+    <dependency>
+      <groupId>org.gitective</groupId>
+      <artifactId>gitective-core</artifactId>
+      <version>0.9.9</version>
+    </dependency>
     <dependency>
       <groupId>net.liftweb</groupId>
       <artifactId>lift-widgets_2.9.1</artifactId>
@@ -140,14 +139,14 @@
     <sourceDirectory>src/main/scala</sourceDirectory>
     <testSourceDirectory>src/test/scala</testSourceDirectory>
     <plugins>
-		
 
-       <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.7</version>
-            <executions>
-               <!-- enable this if a backup server is available.
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <!-- enable this if a backup server is available.
                 <execution>
                     <id>default-cli</id>
                     <configuration>
@@ -162,8 +161,8 @@
                     </goals>
                 </execution>
                -->
-            </executions>
-        </plugin>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>net.alchim31.maven</groupId>
         <artifactId>scala-maven-plugin</artifactId>
@@ -174,7 +173,7 @@
             <jvmArg>-Xmx1024m</jvmArg>
             <jvmArg>-DpackageLinkDefs=file://${project.build.directory}/packageLinkDefs.properties</jvmArg>
           </jvmArgs>
-	
+
         </configuration>
         <executions>
           <execution>
@@ -212,13 +211,13 @@
           </execution>
         </executions>
       </plugin>
-	<plugin>
-	    <groupId>org.codehaus.mojo</groupId>
-	    <artifactId>keytool-maven-plugin</artifactId>
-            <!--
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>keytool-maven-plugin</artifactId>
+        <!--
             keytool is a java sdk utility to manage a key and certificate management utility. It enables users to administer their own public/private key pairs and associated certificates for use in self-authentication (where the user authenticates himself or herself to other users and services) or data integrity and authentication services, using digital signatures. The keytool command also enables users to cache the public keys (in the form of certificates) of their communicating peers.See: https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html.  Mojo has created a wrapper around it.
             -->
-            <!-- 
+        <!-- 
             {| y2019_m01_d29 |} problem: the genkey goal (see below) is deprecated since version 1.2, and is still used in this pom file. (See: http://www.mojohaus.org/keytool/keytool-maven-plugin/index.html).
             
             Currently there is an build-error, which may have something to do with this:
@@ -226,51 +225,51 @@
 [[1;31mERROR[m] 
 [[1;31mERROR[m] 1) No implementation for org.codehaus.mojo.keytool.KeyToolCommandLineBuilder was bound. 
             -->
-            <version>1.2</version>
-	    <executions>
-		<execution>
-		    <phase>generate-resources</phase>
-		    <id>clean</id>
-		    <goals>
-		        <goal>clean</goal>
-		    </goals>
-		</execution>
-		<execution>
-		    <phase>generate-resources</phase>
-		    <id>genkey</id>
-		    <goals>
-		        <goal>genkey</goal>
-		    </goals>
-		</execution>
-	    </executions>
-	    <configuration>
-		<keystore>${project.build.directory}/jetty-ssl.keystore</keystore>
-		<dname>cn=localhost</dname>
-		<keypass>jetty6</keypass>
-		<storepass>jetty6</storepass>
-		<alias>jetty6</alias>
-		<keyalg>RSA</keyalg>
-	    </configuration>
-	</plugin>
+        <version>1.5</version>
+        <executions>
+          <execution>
+            <phase>generate-resources</phase>
+            <id>clean</id>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+          <execution>
+            <phase>generate-resources</phase>
+            <id>generateKeyPair</id>
+            <goals>
+              <goal>generateKeyPair</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <keystore>${project.build.directory}/jetty-ssl.keystore</keystore>
+          <dname>cn=localhost</dname>
+          <keypass>jetty6</keypass>
+          <storepass>jetty6</storepass>
+          <alias>jetty6</alias>
+          <keyalg>RSA</keyalg>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.mortbay.jetty</groupId>
         <artifactId>maven-jetty-plugin</artifactId>
         <version>6.1.25</version>
-        
+
         <configuration>
           <contextPath>/</contextPath>
           <scanIntervalSeconds>5</scanIntervalSeconds>
-	<jvmArgs>-Duser.language=en -Duser.country=US -Duser.region=US</jvmArgs>
-	<connectors>
-	<connector implementation="org.mortbay.jetty.security.SslSocketConnector">
-	<port>8080</port>
-	<maxIdleTime>60000</maxIdleTime>
-	<keystore>${project.build.directory}/jetty-ssl.keystore</keystore>
-	<password>jetty6</password>
-	<keyPassword>jetty6</keyPassword>
-	</connector>
-	</connectors>
-       </configuration>
+          <jvmArgs>-Duser.language=en -Duser.country=US -Duser.region=US</jvmArgs>
+          <connectors>
+            <connector implementation="org.mortbay.jetty.security.SslSocketConnector">
+              <port>8080</port>
+              <maxIdleTime>60000</maxIdleTime>
+              <keystore>${project.build.directory}/jetty-ssl.keystore</keystore>
+              <password>jetty6</password>
+              <keyPassword>jetty6</keyPassword>
+            </connector>
+          </connectors>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>net.sf.alchim</groupId>
@@ -314,69 +313,69 @@
         </configuration>
       </plugin>
       <plugin>
-	   <groupId>org.apache.maven.plugins</groupId>
-	   <artifactId>maven-dependency-plugin</artifactId>
-	 <version>2.5.1</version>
-				<configuration>
-				  <artifactItems>
-					  <artifactItem>
-						  <groupId>org.eprover</groupId>
-						  <artifactId>eprover</artifactId>
-						  <version>1.6</version>
-						  <type>jar</type>
-						  <overWrite>true</overWrite>
-						  <outputDirectory>${basedir}/binaries/eprover</outputDirectory>
-					  </artifactItem>
-					   <artifactItem>
-						  <groupId>org.paradox</groupId>
-						  <artifactId>paradox</artifactId>
-						  <version>4.0</version>
-						  <type>jar</type>
-						  <overWrite>true</overWrite>
-						  <outputDirectory>${basedir}/binaries/paradox</outputDirectory>
-					  </artifactItem>
-					  <artifactItem>
-						  <groupId>org.ocbkc.swift</groupId>
-						  <artifactId>binaries_swift</artifactId>
-						  <version>0.0.1</version>
-						  <type>jar</type>
-						  <overWrite>true</overWrite>
-						  <outputDirectory>${basedir}/binaries/swift</outputDirectory>
-					  </artifactItem>
-				  </artifactItems>
-		  </configuration>
-		 </plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.5.1</version>
+        <configuration>
+          <artifactItems>
+            <artifactItem>
+              <groupId>org.eprover</groupId>
+              <artifactId>eprover</artifactId>
+              <version>1.6</version>
+              <type>jar</type>
+              <overWrite>true</overWrite>
+              <outputDirectory>${basedir}/binaries/eprover</outputDirectory>
+            </artifactItem>
+            <artifactItem>
+              <groupId>org.paradox</groupId>
+              <artifactId>paradox</artifactId>
+              <version>4.0</version>
+              <type>jar</type>
+              <overWrite>true</overWrite>
+              <outputDirectory>${basedir}/binaries/paradox</outputDirectory>
+            </artifactItem>
+            <artifactItem>
+              <groupId>org.ocbkc.swift</groupId>
+              <artifactId>binaries_swift</artifactId>
+              <version>0.0.1</version>
+              <type>jar</type>
+              <overWrite>true</overWrite>
+              <outputDirectory>${basedir}/binaries/swift</outputDirectory>
+            </artifactItem>
+          </artifactItems>
+        </configuration>
+      </plugin>
     </plugins>
     <pluginManagement>
-    	<plugins>
-    		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-    		<plugin>
-    			<groupId>org.eclipse.m2e</groupId>
-    			<artifactId>lifecycle-mapping</artifactId>
-    			<version>1.0.0</version>
-    			<configuration>
-    				<lifecycleMappingMetadata>
-    					<pluginExecutions>
-    						<pluginExecution>
-    							<pluginExecutionFilter>
-    								<groupId>org.codehaus.mojo</groupId>
-    								<artifactId>
+      <plugins>
+        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>
     									keytool-maven-plugin
-    								</artifactId>
-    								<versionRange>[1.2,)</versionRange>
-    								<goals>
-    									<goal>genkey</goal>
-    								</goals>
-    							</pluginExecutionFilter>
-    							<action>
-    								<ignore></ignore>
-    							</action>
-    						</pluginExecution>
-    					</pluginExecutions>
-    				</lifecycleMappingMetadata>
-    			</configuration>
-    		</plugin>
-    	</plugins>
+                    </artifactId>
+                    <versionRange>[1.5,)</versionRange>
+                    <goals>
+                      <goal>generateKeyPair</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore></ignore>
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
     </pluginManagement>
   </build>
   <reporting>
@@ -385,14 +384,14 @@
         <groupId>net.alchim31.maven</groupId>
         <artifactId>scala-maven-plugin</artifactId>
         <version>3.1.6</version>
-	<configuration>
+        <configuration>
           <charset>${project.build.sourceEncoding}</charset>
-	  <scalaVersion>${scala.version}</scalaVersion>
+          <scalaVersion>${scala.version}</scalaVersion>
           <jvmArgs>
             <jvmArg>-Xmx1024m</jvmArg>
             <jvmArg>-DpackageLinkDefs=file://${project.build.directory}/packageLinkDefs.properties</jvmArg>
           </jvmArgs>
-	 
+
         </configuration>
       </plugin>
       <plugin>
