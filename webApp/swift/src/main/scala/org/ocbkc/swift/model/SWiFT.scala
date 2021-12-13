@@ -249,7 +249,7 @@ case class SessionInfo( var textNL: String,
    - The player clicks the check grammar button
    - Does a submission attempt which contains grammatical errors.
   */
-case class IntermediateTranslation extends LongKeyedMapper[IntermediateTranslation] with IdPK
+case class IntermediateTranslation() extends LongKeyedMapper[IntermediateTranslation] with IdPK
 {  def getSingleton = IntermediateTranslation
    object sessionInfo extends MappedLongForeignKey(this, SessionInfoMetaMapperObj)// redundant because of SessionInfo_IntermediateTranslation_join, but still handy.
    object timeOffered  extends MappedLong(this)
@@ -262,7 +262,7 @@ object IntermediateTranslation extends IntermediateTranslation with LongKeyedMet
 {  
 }
 
-case class SessionInfo_IntermediateTranslation_join extends LongKeyedMapper[SessionInfo_IntermediateTranslation_join] with IdPK
+case class SessionInfo_IntermediateTranslation_join() extends LongKeyedMapper[SessionInfo_IntermediateTranslation_join] with IdPK
 {  def getSingleton = SessionInfo_IntermediateTranslation_join
    object sessionInfo extends MappedLongForeignKey(this, SessionInfoMetaMapperObj)
    object intermediateTranslation extends MappedLongForeignKey(this, IntermediateTranslation)
@@ -283,7 +283,7 @@ trait TextCTLbyPlayerObserver extends Observer
 }
 
 // "join" of player and sessionInfo
-case class PlayerSessionInfo_join extends LongKeyedMapper[PlayerSessionInfo_join] with IdPK
+case class PlayerSessionInfo_join() extends LongKeyedMapper[PlayerSessionInfo_join] with IdPK
 {  def getSingleton = PlayerSessionInfo_join
    object player extends MappedLongForeignKey(this, Player)
    object sessionInfo extends MappedLongForeignKey(this, SessionInfoMetaMapperObj)
